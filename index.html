@@ -1,82 +1,56 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
+<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><title>لوحة حية</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="refresh" content="300">
-<title>بوت التداول الذكي — لوحة التشغيل المباشر</title>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Chivo+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Chivo+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:'IBM Plex Sans Arabic',sans-serif;background:#0a0f1c;color:#eef1f8;line-height:1.7;padding:28px 18px;max-width:980px;margin:0 auto}
-  .mono{font-family:'Chivo Mono',monospace;direction:ltr}
-  .top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:22px}
-  h1{font-size:21px;font-weight:700;display:flex;align-items:center;gap:12px}
-  .badge{display:inline-flex;align-items:center;gap:8px;font-family:'Chivo Mono',monospace;font-size:12px;padding:5px 14px;border-radius:999px;border:1px solid}
-  .badge.live{color:#3ec6a0;border-color:#3ec6a0}
-  .badge.halted{color:#e0605a;border-color:#e0605a}
-  .dot{width:9px;height:9px;border-radius:50%;background:currentColor;animation:blink 1.6s infinite}
-  @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
-  .meta{color:#8ea0c3;font-size:13px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:20px}
-  .card{background:#121a2e;border:1px solid #1e2a45;border-radius:14px;padding:16px}
-  .card .k{font-size:12px;color:#8ea0c3;margin-bottom:6px;display:block}
-  .card .v{font-family:'Chivo Mono',monospace;font-size:20px;font-weight:600}
-  .card .v.good{color:#3ec6a0}.card .v.bad{color:#e0605a}.card .v.gold{color:#e8b84b}
-  .panel{background:#121a2e;border:1px solid #1e2a45;border-radius:14px;padding:20px;margin-bottom:20px}
-  h3{font-size:15px;margin-bottom:16px;color:#e8b84b;font-weight:600}
-  .prob-bar{height:10px;background:#1e2a45;border-radius:99px;overflow:hidden;margin:10px 0 4px}
-  .prob-bar i{display:block;height:100%;background:linear-gradient(90deg,#e0605a,#e8b84b,#3ec6a0);border-radius:99px}
-  .gauge-lbl{display:flex;justify-content:space-between;font-size:11.5px;color:#8ea0c3}
-  .pos-row{border:1px solid #1e2a45;border-radius:12px;padding:14px;margin-top:6px}
-  .pos-tag{display:inline-block;font-size:11.5px;padding:3px 12px;border-radius:999px;margin-bottom:10px;font-family:'Chivo Mono',monospace}
-  .pos-tag.open{background:rgba(62,198,160,.15);color:#3ec6a0}
-  .pos-tag.flat{background:rgba(142,160,195,.12);color:#8ea0c3}
-  .pos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px}
-  .pos-grid .k{display:block;font-size:11.5px;color:#8ea0c3}.pos-grid .v{font-family:'Chivo Mono',monospace;font-size:15px}
-  .v.warn{color:#e8b84b}.v.good{color:#3ec6a0}
-  .dim{color:#8ea0c3;font-size:13px;margin-top:6px}
-  table{width:100%;border-collapse:collapse;font-size:13px}
-  th{color:#8ea0c3;font-size:11.5px;text-align:right;padding:8px 10px;border-bottom:1px solid #1e2a45;font-weight:500}
-  td{padding:9px 10px;border-bottom:1px solid #161f33}
-  td.good{color:#3ec6a0}td.bad{color:#e0605a}td.gold{color:#e8b84b}
-  .foot{margin-top:26px;font-size:12px;color:#5a6b8f;border-top:1px dashed #1e2a45;padding-top:16px;line-height:2}
-  a{color:#e8b84b;text-decoration:none}
-</style>
-</head>
-<body>
-  <div class="top">
-    <h1><span class="mono" style="color:#e8b84b">AI</span> بوت التداول الذكي <span class="badge halted"><span class="dot"></span>متوقف مؤقت (حد الخطر)</span></h1>
-    <div class="meta">آخر تحديث: <span class="mono">2026-09-10 19:18 UTC</span> · يحدث تلقائياً كل ساعة</div>
-  </div>
-
-  <div class="grid">
-    <div class="card"><span class="k">رأس المال</span><span class="v">640.66</span></div>
-    <div class="card"><span class="k">أقصى رأس مال</span><span class="v gold">1,000.00</span></div>
-    <div class="card"><span class="k">عدد الدورات</span><span class="v">3</span></div>
-    <div class="card"><span class="k">السوق</span><span class="v mono" style="font-size:15px">INJ/USDT · 15m</span></div>
-    <div class="card"><span class="k">السعر</span><span class="v">0.64</span></div>
-    <div class="card"><span class="k">الوضع</span><span class="v" style="font-size:15px">تجريبي (Paper)</span></div>
-  </div>
-
-  <div class="panel">
-    <h3>إشارة النموذج — آخر دورة</h3>
-    <div class="prob-bar"><i style="width:60.699999999999996%"></i></div>
-    <div class="gauge-lbl"><span>احتمال الارتفاع: <b class="mono">0.607</b></span><span>حد الدخول <span class="mono">0.6</span> · حد الخروج <span class="mono">0.42</span></span></div>
-  </div>
-
-  <div class="panel"><h3>المركز الحالي</h3><div class="pos-row"><div class="pos-tag open">مركز مفتوح</div><div class="pos-grid"><div><span class="k">الكمية</span><span class="v">66.889632</span></div><div><span class="k">الدخول</span><span class="v">6.01</span></div><div><span class="k">الستوب لوس</span><span class="v warn">5.56</span></div><div><span class="k">الهدف</span><span class="v good">6.70</span></div></div></div></div>
-
-  <div class="panel"><h3>أفضل الفرص الآن (درجة زخم مركّبة)</h3><table><thead><tr><th>#</th><th>الزوج</th><th>زخم 1س</th><th>انفجار حجم</th><th>موجة كبيرة</th><th>الدرجة</th></tr></thead><tbody><tr><td class="mono">1</td><td class="mono" style="font-weight:600">APT/USDT</td><td class="mono $good">+0.68%</td><td class="mono">×0.8</td><td class="mono">+0.43</td><td class="mono gold">0.607</td></tr><tr><td class="mono">2</td><td class="mono" style="font-weight:600">PEPE/USDT</td><td class="mono $good">+0.61%</td><td class="mono">×0.4</td><td class="mono">+0.46</td><td class="mono gold">0.561</td></tr><tr><td class="mono">3</td><td class="mono" style="font-weight:600">INJ/USDT</td><td class="mono $good">+0.17%</td><td class="mono">×0.9</td><td class="mono">+0.07</td><td class="mono gold">0.552</td></tr><tr><td class="mono">4</td><td class="mono" style="font-weight:600">BNB/USDT</td><td class="mono $good">+0.28%</td><td class="mono">×0.8</td><td class="mono">-0.04</td><td class="mono gold">0.517</td></tr><tr><td class="mono">5</td><td class="mono" style="font-weight:600">SHIB/USDT</td><td class="mono $good">+0.33%</td><td class="mono">×0.4</td><td class="mono">+0.00</td><td class="mono gold">0.478</td></tr><tr><td class="mono">6</td><td class="mono" style="font-weight:600">DOGE/USDT</td><td class="mono $good">+0.43%</td><td class="mono">×0.3</td><td class="mono">+0.00</td><td class="mono gold">0.473</td></tr></tbody></table><p class="dim">زخم 1س: تغيّر السعر خلال ساعة · انفجار حجم: مضاعف الحجم عن المتوسط · موجة كبيرة: انحياز تدفق الصفقات الضخمة (تقدير تقريبي).</p></div>
-
-  <div class="panel"><h3>آخر الصفقات</h3><p class="dim">لا توجد صفقات بعد — البوت لم يجتاز حد الدخول حتى الآن. تجريبي آمن.</p></div>
-
-  <div class="foot">
-    <b style="color:#e8b84b">كيف تقرأ هذه اللوحة؟</b> كل ساعة، يشغّل <b>GitHub Actions</b> دورة كاملة: يجلب 2000 شمعة → يدرّب النموذج → يحسب الإشارة → يتخذ القرار → يحدّث هذه الصفحة تلقائياً.<br>
-    · الوضع الحالي: <b>تجريبي (Paper)</b> — لا تتحرك أي أموال حقيقية.<br>
-    · مصدر البيانات: <span class="mono">okx</span> (المنصة الافتراضية تُستبدل تلقائياً عند الحجب الجغرافي).<br>
-    · سجل التشغيلات: <a href="https://github.com/tufeeq/ai-trading-bot/actions">GitHub Actions</a> · الكود: <a href="https://github.com/tufeeq/ai-trading-bot">المستودع</a><br>
-    <span style="color:#5a6b8f">هذه الصفحة مخصصة لك (المستودع خاص) — تفتح أثناء تسجيل دخولك إلى GitHub.</span>
-  </div>
-</body>
-</html>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'IBM Plex Sans Arabic',sans-serif;background:#0a0f1c;color:#eef1f8;max-width:1060px;margin:0 auto;padding:24px 18px}
+h1{font-size:21px;margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.badge{font-family:'Chivo Mono',monospace;font-size:11px;color:#3ec6a0;border:1px solid #3ec6a0;border-radius:99px;padding:4px 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:13px;margin-bottom:20px}
+.card{background:#121a2e;border:1px solid #1e2a45;border-radius:14px;padding:15px}
+.card .k{display:block;font-size:11px;color:#8ea0c3;margin-bottom:5px}
+.card .v{font-family:'Chivo Mono',monospace;font-size:19px;font-weight:600}
+.good{color:#3ec6a0}.bad{color:#e0605a}.gold{color:#e8b84b}.muted{color:#5a6b8f;font-size:12px}
+.panel{background:#121a2e;border:1px solid #1e2a45;border-radius:14px;padding:20px;margin-bottom:20px}
+h3{font-size:15px;margin-bottom:14px;color:#e8b84b;display:flex;justify-content:space-between;align-items:center}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{color:#8ea0c3;font-size:11px;text-align:right;padding:7px 9px;border-bottom:1px solid #1e2a45}
+td{padding:8px 9px;border-bottom:1px solid #161f33;font-family:'Chivo Mono',monospace}
+.up{color:#3ec6a0}.down{color:#e0605a}
+.pos{border:1px solid #1e2a45;border-radius:12px;padding:14px;display:flex;flex-wrap:wrap;gap:18px}
+.pos .i .k{font-size:11px;color:#8ea0c3;display:block}.pos .i .vm{font-family:'Chivo Mono',monospace;font-size:15px}
+.pnl-big{font-family:'Chivo Mono',monospace;font-size:24px;font-weight:700}
+.flash-up{background:rgba(62,198,160,.09)}.flash-down{background:rgba(224,96,90,.09)}
+a{color:#e8b84b;text-decoration:none}
+</style></head><body>
+<h1><span class="mono" style="color:#e8b84b">AI</span> بوت التداول الذكي <span class="badge">حي — بيانات حقيقية</span></h1>
+<div class="grid">
+  <div class="card"><span class="k">رأس المال</span><span class="v" id="equity">—</span></div>
+  <div class="card"><span class="k">الذروة</span><span class="v gold" id="peak">—</span></div>
+  <div class="card"><span class="k">الدورات</span><span class="v" id="cycles">—</span></div>
+  <div class="card"><span class="k">المركز</span><span class="v mono" style="font-size:14px" id="posSym">لا يوجد</span></div>
+  <div class="card"><span class="k">الربح/الخسارة اللحظي</span><span class="v" id="pnlNow">$0.00</span></div>
+  <div class="card"><span class="k">نسبة الربح</span><span class="v" id="pnlPct">0.00%</span></div>
+</div>
+<div class="panel"><h3>المركز الحالي <span class="muted" style="color:#3ec6a0">تحديث مباشر</span></h3><div id="posBox"><p class="muted">لا يوجد مركز مفتوح.</p></div></div>
+<div class="panel"><h3>أسعار حية <span class="muted" style="color:#3ec6a0">LIVE · كل 2ث</span></h3>
+<table><thead><tr><th>الزوج</th><th>السعر</th><th>تغيّر 24س</th><th>حجم 24س</th></tr></thead><tbody id="prices"></tbody></table></div>
+<div class="panel"><p class="muted">الأسعار حقيقية من التغذية العامة للأسواق وتتحدث فورياً. الربح/الخسارة يُحسب من مركز البوت الفعلي ضد السعر الحي. الوضع الحالي: تجريبي (Paper).</p></div>
+<script>
+const SYMS='btcusdt ethusdt dogeusdt shibusdt pepeusdt wifusdt bonkusdt flokiusdt solusdt xrpusdt avaxusdt linkusdt injusdt suiusdt arbusdt opusdt nearusdt aptusdt seiusdt jupusdt'.split(' ');
+const tbody=document.getElementById('prices');
+const rows={};
+SYMS.forEach(s=>{const tr=document.createElement('tr');tr.id='r-'+s;tr.innerHTML=`<td style="font-weight:600">${s.toUpperCase().replace('USDT','/USDT')}</td><td id="px-${s}">—</td><td id="chg-${s}">—</td><td id="vol-${s}" class="muted">—</td>`;tbody.appendChild(tr);rows[s]=tr;});
+let ws;let STATE={position:null,equity:0};
+function connect(){ws=new WebSocket('wss://stream.binance.com:9443/stream?streams='+SYMS.map(s=>s+'@ticker').join('/'));
+ws.onmessage=ev=>{const d=JSON.parse(ev.data).data;const s=d.s.toLowerCase();const px=parseFloat(d.c);const el=document.getElementById('px-'+s);if(!el)return;const prev=parseFloat(el.dataset.px||'0');el.textContent=px.toFixed(px<1?8:4);const c=parseFloat(d.P);const ce=document.getElementById('chg-'+s);ce.textContent=(c>=0?'+':'')+c.toFixed(2)+'%';ce.className=c>=0?'up':'down';document.getElementById('vol-'+s).textContent=(parseFloat(d.q)/1e6).toFixed(2)+'M';if(prev&&px!==prev){rows[s].className=(px>prev?'flash-up':'flash-down');setTimeout(()=>rows[s].className='',400);}el.dataset.px=px;updPnl(px,s);};
+ws.onclose=()=>setTimeout(connect,2000);}
+async function fetchState(){try{const r=await fetch('./state.json?t='+Date.now());if(!r.ok)return;STATE=await r.json();document.getElementById('equity').textContent='$'+STATE.equity;document.getElementById('peak').textContent='$'+(STATE.peak_equity||0);document.getElementById('cycles').textContent=STATE.cycles||0;renderPos();}catch(e){}}
+function renderPos(){const p=STATE.position;const b=document.getElementById('posBox');if(!p){b.innerHTML='<p class="muted">لا يوجد مركز مفتوح — البوت يراقب الفرص.</p>';updPnl(0,null,true);return;}
+b.innerHTML=`<div class="pos"><div class="i"><span class="k">العملة</span><span class="vm">${p.symbol}</span></div><div class="i"><span class="k">الكمية</span><span class="vm">${p.qty}</span></div><div class="i"><span class="k">الدخول</span><span class="vm">${p.entry_price}</span></div><div class="i"><span class="k">الستوب</span><span class="vm" style="color:#e0605a">${p.stop_loss}</span></div><div class="i"><span class="k">الهدف</span><span class="vm" style="color:#3ec6a0">${p.take_profit}</span></div></div><div style="margin-top:12px"><span style="font-size:12px;color:#8ea0c3">الربح/الخسارة اللحظي: </span><span class="pnl-big" id="pnlBig">$0.00</span></div>`;document.getElementById('posSym').textContent=p.symbol;}
+function updPnl(px,sym,force){const p=STATE.position;if(!p){const a=document.getElementById('pnlNow');if(a)a.textContent='$0.00';return;}if(sym&&p.symbol&&p.symbol.replace('/','').toLowerCase()!==sym.toLowerCase()&&!force)return;if(!px){const e=document.getElementById('px-'+p.symbol.replace('/','').toLowerCase());if(e)px=parseFloat(e.dataset.px||'0');}if(!px)return;const pn=(px-p.entry_price)*p.qty;const pc=(px-p.entry_price)/p.entry_price*100;const s=pn>=0?'good':'bad';
+const a=document.getElementById('pnlNow');if(a){a.textContent=(pn>=0?'+':'')+'$'+pn.toFixed(2);a.className='v '+s;}
+const b=document.getElementById('pnlPct');if(b){b.textContent=(pc>=0?'+':'')+pc.toFixed(2)+'%';b.className='v '+s;}
+const big=document.getElementById('pnlBig');if(big){big.textContent=(pn>=0?'+':'')+'$'+pn.toFixed(2);big.className='pnl-big '+s;}}
+connect();fetchState();setInterval(fetchState,15000);
+</script></body></html>
