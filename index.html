@@ -1,56 +1,55 @@
-<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><title>لوحة حية</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Chivo+Mono:wght@400;600&display=swap" rel="stylesheet">
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>TAG Crypto Autopilot</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'IBM Plex Sans Arabic',sans-serif;background:#0a0f1c;color:#eef1f8;max-width:1060px;margin:0 auto;padding:24px 18px}
-h1{font-size:21px;margin-bottom:20px;display:flex;align-items:center;gap:12px}
-.badge{font-family:'Chivo Mono',monospace;font-size:11px;color:#3ec6a0;border:1px solid #3ec6a0;border-radius:99px;padding:4px 12px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:13px;margin-bottom:20px}
-.card{background:#121a2e;border:1px solid #1e2a45;border-radius:14px;padding:15px}
-.card .k{display:block;font-size:11px;color:#8ea0c3;margin-bottom:5px}
-.card .v{font-family:'Chivo Mono',monospace;font-size:19px;font-weight:600}
-.good{color:#3ec6a0}.bad{color:#e0605a}.gold{color:#e8b84b}.muted{color:#5a6b8f;font-size:12px}
-.panel{background:#121a2e;border:1px solid #1e2a45;border-radius:14px;padding:20px;margin-bottom:20px}
-h3{font-size:15px;margin-bottom:14px;color:#e8b84b;display:flex;justify-content:space-between;align-items:center}
-table{width:100%;border-collapse:collapse;font-size:13px}
-th{color:#8ea0c3;font-size:11px;text-align:right;padding:7px 9px;border-bottom:1px solid #1e2a45}
-td{padding:8px 9px;border-bottom:1px solid #161f33;font-family:'Chivo Mono',monospace}
-.up{color:#3ec6a0}.down{color:#e0605a}
-.pos{border:1px solid #1e2a45;border-radius:12px;padding:14px;display:flex;flex-wrap:wrap;gap:18px}
-.pos .i .k{font-size:11px;color:#8ea0c3;display:block}.pos .i .vm{font-family:'Chivo Mono',monospace;font-size:15px}
-.pnl-big{font-family:'Chivo Mono',monospace;font-size:24px;font-weight:700}
-.flash-up{background:rgba(62,198,160,.09)}.flash-down{background:rgba(224,96,90,.09)}
-a{color:#e8b84b;text-decoration:none}
-</style></head><body>
-<h1><span class="mono" style="color:#e8b84b">AI</span> بوت التداول الذكي <span class="badge">حي — بيانات حقيقية</span></h1>
-<div class="grid">
-  <div class="card"><span class="k">رأس المال</span><span class="v" id="equity">—</span></div>
-  <div class="card"><span class="k">الذروة</span><span class="v gold" id="peak">—</span></div>
-  <div class="card"><span class="k">الدورات</span><span class="v" id="cycles">—</span></div>
-  <div class="card"><span class="k">المركز</span><span class="v mono" style="font-size:14px" id="posSym">لا يوجد</span></div>
-  <div class="card"><span class="k">الربح/الخسارة اللحظي</span><span class="v" id="pnlNow">$0.00</span></div>
-  <div class="card"><span class="k">نسبة الربح</span><span class="v" id="pnlPct">0.00%</span></div>
+:root{--bg:#08111f;--panel:#0f1b2e;--line:#21314a;--text:#f2f6fb;--muted:#91a2bb;--good:#39d39f;--bad:#ff6b6b;--gold:#f5c85b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,"Tahoma",sans-serif;max-width:1180px;padding:26px 18px;margin:auto}.top{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;flex-wrap:wrap;margin-bottom:20px}.title{font-size:24px;font-weight:800}.sub{color:var(--muted);font-size:13px;margin-top:6px}.badges{display:flex;gap:8px;flex-wrap:wrap}.badge{border:1px solid var(--line);border-radius:999px;padding:6px 11px;font-size:12px}.badge.good{color:var(--good);border-color:#24634f}.badge.bad{color:var(--bad);border-color:#673737}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:18px}.card,.panel{background:var(--panel);border:1px solid var(--line);border-radius:15px}.card{padding:16px}.k{display:block;color:var(--muted);font-size:12px;margin-bottom:7px}.v{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:21px;font-weight:700;direction:ltr;text-align:right}.panel{padding:18px;margin-bottom:16px}.panel h3{font-size:15px;margin:0 0 14px;color:var(--gold)}table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:10px 8px;border-bottom:1px solid #18263c;text-align:right}th{color:var(--muted);font-size:11px}.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;direction:ltr}.good{color:var(--good)}.bad{color:var(--bad)}.muted{color:var(--muted)}.empty{padding:18px;border:1px dashed var(--line);border-radius:12px;color:var(--muted)}.warn{background:#171c25;border:1px solid #5d4d26;color:#f6d77a;border-radius:12px;padding:11px 13px;font-size:12px;margin-bottom:16px}.foot{font-size:11px;color:#65758d;margin-top:22px}.row{display:flex;gap:14px;flex-wrap:wrap}.pill{padding:4px 8px;border-radius:7px;background:#132238;font-size:11px}
+</style>
+</head>
+<body>
+<div class="top">
+  <div><div class="title">TAG Crypto Autopilot <span class="mono" style="color:var(--gold)">V2.1</span></div><div class="sub" id="updated">جارٍ قراءة آخر حالة…</div></div>
+  <div class="badges"><span class="badge" id="binanceBadge">Binance: …</span><span class="badge" id="botBadge">BOT: …</span><span class="badge" id="protectBadge">OCO: …</span></div>
 </div>
-<div class="panel"><h3>المركز الحالي <span class="muted" style="color:#3ec6a0">تحديث مباشر</span></h3><div id="posBox"><p class="muted">لا يوجد مركز مفتوح.</p></div></div>
-<div class="panel"><h3>أسعار حية <span class="muted" style="color:#3ec6a0">LIVE · كل 2ث</span></h3>
-<table><thead><tr><th>الزوج</th><th>السعر</th><th>تغيّر 24س</th><th>حجم 24س</th></tr></thead><tbody id="prices"></tbody></table></div>
-<div class="panel"><p class="muted">الأسعار حقيقية من التغذية العامة للأسواق وتتحدث فورياً. الربح/الخسارة يُحسب من مركز البوت الفعلي ضد السعر الحي. الوضع الحالي: تجريبي (Paper).</p></div>
+<div id="privacyWarn" class="warn" style="display:none">هذه الواجهة منشورة على GitHub Pages العام؛ لذلك لا يتم إظهار قيمة الرصيد إلا إذا فُعّل نشر الرصيد صراحةً في إعدادات السيرفر.</div>
+<div class="grid">
+  <div class="card"><span class="k">إجمالي محفظة Binance</span><div class="v" id="balance">—</div></div>
+  <div class="card"><span class="k">USDT المتاح</span><div class="v" id="freeUsdt">—</div></div>
+  <div class="card"><span class="k">المراكز المفتوحة</span><div class="v" id="positionsCount">0</div></div>
+  <div class="card"><span class="k">الصفقات المغلقة</span><div class="v" id="trades">0</div></div>
+  <div class="card"><span class="k">نسبة الفوز</span><div class="v" id="winRate">—</div></div>
+  <div class="card"><span class="k">وضع التشغيل</span><div class="v" style="font-size:15px" id="mode">—</div></div>
+</div>
+<div class="panel"><h3>المراكز الحالية</h3><div id="positionsBox" class="empty">لا توجد بيانات.</div></div>
+<div class="panel"><h3>أفضل الفرص الآن</h3><div id="oppsBox" class="empty">بانتظار بيانات المحرك.</div></div>
+<div class="panel"><h3>حالة النظام</h3><div class="row"><span class="pill" id="source">—</span><span class="pill" id="halt">—</span><span class="pill">تحديث الصفحة: 15 ثانية</span></div></div>
+<div class="foot">لا يحتوي هذا الموقع على مفاتيح Binance أو API Secret. بيانات الحساب لا يمكن قراءتها إلا من جهة تشغيل آمنة تستخدم الأسرار كمتغيرات بيئة.</div>
 <script>
-const SYMS='btcusdt ethusdt dogeusdt shibusdt pepeusdt wifusdt bonkusdt flokiusdt solusdt xrpusdt avaxusdt linkusdt injusdt suiusdt arbusdt opusdt nearusdt aptusdt seiusdt jupusdt'.split(' ');
-const tbody=document.getElementById('prices');
-const rows={};
-SYMS.forEach(s=>{const tr=document.createElement('tr');tr.id='r-'+s;tr.innerHTML=`<td style="font-weight:600">${s.toUpperCase().replace('USDT','/USDT')}</td><td id="px-${s}">—</td><td id="chg-${s}">—</td><td id="vol-${s}" class="muted">—</td>`;tbody.appendChild(tr);rows[s]=tr;});
-let ws;let STATE={position:null,equity:0};
-function connect(){ws=new WebSocket('wss://stream.binance.com:9443/stream?streams='+SYMS.map(s=>s+'@ticker').join('/'));
-ws.onmessage=ev=>{const d=JSON.parse(ev.data).data;const s=d.s.toLowerCase();const px=parseFloat(d.c);const el=document.getElementById('px-'+s);if(!el)return;const prev=parseFloat(el.dataset.px||'0');el.textContent=px.toFixed(px<1?8:4);const c=parseFloat(d.P);const ce=document.getElementById('chg-'+s);ce.textContent=(c>=0?'+':'')+c.toFixed(2)+'%';ce.className=c>=0?'up':'down';document.getElementById('vol-'+s).textContent=(parseFloat(d.q)/1e6).toFixed(2)+'M';if(prev&&px!==prev){rows[s].className=(px>prev?'flash-up':'flash-down');setTimeout(()=>rows[s].className='',400);}el.dataset.px=px;updPnl(px,s);};
-ws.onclose=()=>setTimeout(connect,2000);}
-async function fetchState(){try{const r=await fetch('./state.json?t='+Date.now());if(!r.ok)return;STATE=await r.json();document.getElementById('equity').textContent='$'+STATE.equity;document.getElementById('peak').textContent='$'+(STATE.peak_equity||0);document.getElementById('cycles').textContent=STATE.cycles||0;renderPos();}catch(e){}}
-function renderPos(){const p=STATE.position;const b=document.getElementById('posBox');if(!p){b.innerHTML='<p class="muted">لا يوجد مركز مفتوح — البوت يراقب الفرص.</p>';updPnl(0,null,true);return;}
-b.innerHTML=`<div class="pos"><div class="i"><span class="k">العملة</span><span class="vm">${p.symbol}</span></div><div class="i"><span class="k">الكمية</span><span class="vm">${p.qty}</span></div><div class="i"><span class="k">الدخول</span><span class="vm">${p.entry_price}</span></div><div class="i"><span class="k">الستوب</span><span class="vm" style="color:#e0605a">${p.stop_loss}</span></div><div class="i"><span class="k">الهدف</span><span class="vm" style="color:#3ec6a0">${p.take_profit}</span></div></div><div style="margin-top:12px"><span style="font-size:12px;color:#8ea0c3">الربح/الخسارة اللحظي: </span><span class="pnl-big" id="pnlBig">$0.00</span></div>`;document.getElementById('posSym').textContent=p.symbol;}
-function updPnl(px,sym,force){const p=STATE.position;if(!p){const a=document.getElementById('pnlNow');if(a)a.textContent='$0.00';return;}if(sym&&p.symbol&&p.symbol.replace('/','').toLowerCase()!==sym.toLowerCase()&&!force)return;if(!px){const e=document.getElementById('px-'+p.symbol.replace('/','').toLowerCase());if(e)px=parseFloat(e.dataset.px||'0');}if(!px)return;const pn=(px-p.entry_price)*p.qty;const pc=(px-p.entry_price)/p.entry_price*100;const s=pn>=0?'good':'bad';
-const a=document.getElementById('pnlNow');if(a){a.textContent=(pn>=0?'+':'')+'$'+pn.toFixed(2);a.className='v '+s;}
-const b=document.getElementById('pnlPct');if(b){b.textContent=(pc>=0?'+':'')+pc.toFixed(2)+'%';b.className='v '+s;}
-const big=document.getElementById('pnlBig');if(big){big.textContent=(pn>=0?'+':'')+'$'+pn.toFixed(2);big.className='pnl-big '+s;}}
-connect();fetchState();setInterval(fetchState,15000);
-</script></body></html>
+const $=id=>document.getElementById(id);
+const money=v=>v==null?'—':'$'+Number(v).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+const pct=v=>v==null?'—':Number(v).toFixed(1)+'%';
+function badge(el,text,state){el.textContent=text;el.className='badge '+(state==='good'?'good':state==='bad'?'bad':'');}
+function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+function render(d){
+ const b=d.binance||{};
+ $('updated').textContent='آخر تحديث: '+(d.updated_at?new Date(d.updated_at).toLocaleString('ar-SA'):'غير متاح');
+ badge($('binanceBadge'),b.connected?'Binance: متصل':'Binance: غير متصل',b.connected?'good':'bad');
+ badge($('botBadge'),d.halted?'BOT: متوقف':'BOT: يعمل',d.halted?'bad':'good');
+ badge($('protectBadge'),d.protection_enabled?'OCO: مفعلة':'OCO: غير مفعلة',d.protection_enabled?'good':'bad');
+ $('balance').textContent=b.balance_visible===false&&b.connected?'مخفي':money(b.total_usdt);
+ $('freeUsdt').textContent=b.balance_visible===false&&b.connected?'مخفي':money(b.free_usdt);
+ $('privacyWarn').style.display=(b.connected&&b.balance_visible===false)?'block':'none';
+ const ps=Array.isArray(d.positions)?d.positions:[];$('positionsCount').textContent=ps.length;
+ $('trades').textContent=d.trades??0;const n=Number(d.trades||0);$('winRate').textContent=n?pct(Number(d.wins||0)/n*100):'—';$('mode').textContent=d.mode||'—';
+ $('source').textContent='المصدر: '+(d.source||'Autopilot');$('halt').textContent=d.halted?'إيقاف: '+(d.halt_reason||'risk'):'المخاطر: طبيعية';
+ if(!ps.length){$('positionsBox').className='empty';$('positionsBox').textContent='لا توجد مراكز مفتوحة.'}else{$('positionsBox').className='';$('positionsBox').innerHTML='<table><thead><tr><th>الزوج</th><th>الدخول</th><th>الكمية</th><th>الوقف</th><th>الهدف</th><th>OCO</th></tr></thead><tbody>'+ps.map(p=>`<tr><td class="mono">${esc(p.symbol)}</td><td class="mono">${esc(p.entry)}</td><td class="mono">${esc(p.qty)}</td><td class="mono bad">${esc(p.stop)}</td><td class="mono good">${esc(p.take_profit)}</td><td class="mono">${p.protection_id?'ON':'—'}</td></tr>`).join('')+'</tbody></table>'}
+ const os=Array.isArray(d.opportunities)?d.opportunities:[];if(!os.length){$('oppsBox').className='empty';$('oppsBox').textContent='بانتظار تدفق فرص المحرك.'}else{$('oppsBox').className='';$('oppsBox').innerHTML='<table><thead><tr><th>#</th><th>الزوج</th><th>احتمال</th><th>Edge bps</th><th>Spread</th><th>Book</th><th>Flow</th></tr></thead><tbody>'+os.slice(0,10).map((o,i)=>`<tr><td>${i+1}</td><td class="mono">${esc(o.symbol)}</td><td class="mono good">${(Number(o.probability||0)*100).toFixed(1)}%</td><td class="mono">${Number(o.expected_edge_bps||0).toFixed(1)}</td><td class="mono">${Number(o.spread_bps||0).toFixed(1)}</td><td class="mono">${Number(o.book_imbalance||0).toFixed(2)}</td><td class="mono">${Number(o.flow_imbalance||0).toFixed(2)}</td></tr>`).join('')+'</tbody></table>'}
+}
+async function load(){try{const r=await fetch('./state.json?t='+Date.now(),{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);render(await r.json())}catch(e){badge($('binanceBadge'),'الحالة: تعذر التحميل','bad');$('updated').textContent='تعذر قراءة state.json — '+e.message}}
+load();setInterval(load,15000);
+</script>
+</body></html>
