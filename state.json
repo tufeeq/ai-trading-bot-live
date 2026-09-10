@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-09-10T21:50:00Z",
+  "updated_at": "2026-09-10T23:25:15.504604+00:00",
   "source": "TAG Crypto Autopilot V2.1",
   "mode": "dashboard",
   "binance": {
     "connected": false,
     "total_usdt": null,
     "free_usdt": null,
-    "reason": "BINANCE_API_KEY and BINANCE_API_SECRET must be configured as secure runner/server secrets"
+    "reason": "BINANCE_API_KEY/BINANCE_API_SECRET not configured in runner/server secrets"
   },
   "protection_enabled": true,
   "halted": false,
