@@ -1,16 +1,19 @@
 {
-  "updated_at": "2026-09-10T19:18:00.959741+00:00",
-  "equity": 999.68,
-  "cash": 598.14,
-  "peak_equity": 1000.0,
-  "cycles": 2,
+  "updated_at": "2026-09-10T21:50:00Z",
+  "source": "TAG Crypto Autopilot V2.1",
+  "mode": "dashboard",
+  "binance": {
+    "connected": false,
+    "total_usdt": null,
+    "free_usdt": null,
+    "reason": "BINANCE_API_KEY and BINANCE_API_SECRET must be configured as secure runner/server secrets"
+  },
+  "protection_enabled": true,
   "halted": false,
-  "position": {
-    "symbol": "INJ/USDT",
-    "qty": 66.889632,
-    "entry_price": 6.0078024,
-    "stop_loss": 5.5593024,
-    "take_profit": 6.6978024,
-    "opened_at": "2026-09-10T19:03:13.528539+00:00"
-  }
+  "halt_reason": "",
+  "trades": 0,
+  "wins": 0,
+  "losses": 0,
+  "positions": [],
+  "opportunities": []
 }
